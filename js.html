@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>javascript練習</title>
+	<script type="text/javascript">
+	  /*var money = prompt("請輸入要提取的金額" , "0");
+	  if(money > 30000){
+	  	alert("不能提取那麼多錢！");
+	  }else{
+	  	alert("恭喜，提取成功！");
+	  }
+	   var n = prompt("請輸入要提取的金額" , "0");
+	  if(n > 500){
+	  	alert("不能提取那麼多錢！");
+	  }else if(n>300){
+	  	alert("恭喜，提取成功！");
+	  }else{
+	  	alert("如果你有需要的話")
+	  }*/
+	  var n1  = prompt("請輸入數字","1");
+	  var n2 =  prompt("第二個數字" ,"2");
+	  var op = prompt("請輸入+,-,*,/ 其中一個" , "");
+	  n1 = Number(n1);
+	  n2 = Number(n2);
+	  var result;
+	  if(op=="+"){
+	  	result = n1 + n2;
+	  }else{
+	  	result = n1 - n2;
+	  }
+	  prompt(result);
+	  function sum(max){
+	  	var sum = 0;
+	  	var n = 1;
+	  	while(n<50){
+	  		sum += n;
+	  		n++;
+	  		alert(sum);
+	  		return sum;
+	  	}
+	  }
+	  var player = new Object();
+	  player.name  = "John";
+	  player.hp = 100;
+	  player.fight = function(){
+	  	this.hp -=2 ;
+	  };
+	  player.rest = function(){
+	  	this.hp++;
+	  }
+	  player.report = function(){
+
+	  };
+	</script>
+</head>
+<body>
+
+</body>
+</html>
