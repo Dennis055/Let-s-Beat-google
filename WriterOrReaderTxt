@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
-
+//code不知為何排第一個array會多一個"?"
 public class WriterOrReaderTxt {
 	public void writerTxt() {
 
@@ -104,3 +104,21 @@ public class WriterOrReaderTxt {
 		}
 
 }
+
+
+
+public class main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		WriterOrReaderTxt e = new WriterOrReaderTxt ();
+		//e.writerTxt();
+		e.readTxt();
+	
+
+	}
+
+}
+
+
