@@ -20,20 +20,26 @@ public class GUI extends JPanel implements ActionListener{
 	 
 	 public static void main(String[] args) {
 		 
-		 frame.setSize(1500,1000);
+		 frame.setSize(900,700);
 		 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		 frame.setLayout(null);
 		 label.setBounds(0,0,300,200);
-		 textfield.setBounds(350, 0, 500, 200);
-		 button.setBounds(670, 0, 300, 100);
+		 textfield.setBounds(100, 70, 350, 50);
+		 button.setBounds(460, 70, 100, 50);
 		 
 		 
 		 frame.getContentPane().add(label);
 		 frame.getContentPane().add(textfield);
 		 frame.getContentPane().add(button);
 		 
+		  frame.setVisible(true);
 		 
-		 frame.setVisible(true);
+		 
+		button.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {
+			
+		}		
+		});
+		 
 		 
 	 }
 
