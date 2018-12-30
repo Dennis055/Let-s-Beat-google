@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Boogle</title>
+	<meta charset="utf-8">
+	<script type="text/javascript">
+		var setText = function(){
+			prompt("輸入查詢字串");
+		}
+
+
+	</script>
+	<style type="text/css">
+		.head{
+			font-size:200px;font-weight: 0.5;
+		}
+		.form{
+			font-size: 20px; margin-right:40px; 
+		}
+		.but {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin-left: 100px;
+  margin-top: 20px;
+}
+
+
+	.sitebody{
+　width:600px;
+　margin:0 auto;
+　font-size:13px;
+	}
+.header{
+　background-color:#FFD4D4;
+　height:80px;
+　text-align:center;
+　line-height:80px;
+}
+.sidebar_left{
+　background-color:#FFECC9;
+　width:120px;
+　height:400px;
+　text-align:center;
+　line-height:400px;
+　float:left;
+}
+.sidebar_right{
+　background-color:#FFECC9;
+　width:120px;
+　height:400px;
+　text-align:center;
+　line-height:400px;
+　float:right;
+}
+.content{
+　margin-left:120px;
+　margin-right:120px;
+　height:400px;
+　background-color:#F2FFF2;
+　
+}
+.contents{
+	margin-left: 420px;
+	margin-right: 120px;
+	height:400px;
+}
+.footer{
+　clear:both;
+　background-color:#FFD4D4;
+　height:80px;
+　line-height:80px;
+}
+	</style>
+</head>
+
+
+
+<body>
+	<div id="sitebody" class="sitebody">
+　<div class="header"></div>
+　<div class="sidebar_left"></div>
+　<div class="sidebar_right"></div>
+　<div class="contents">
+	<div class="head">Boogle</div>
+	<form class="form">
+		請輸入文字：
+		<input type="text" name="欄位名稱" width="30px" placeholder="輸入文字"  style="font-size:30px">
+	</form>
+	<button class="but">搜尋 </button>
+	<button class="but">查詢結果</button>
+	
+</div>
+　<div id="footer"></div>
+</div>
+</body>
+</html>
