@@ -1,0 +1,30 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Canvas</title>
+	<script type="text/javascript">
+	window.onload = function(){
+		var cvs = document.getElementById("cvs");
+		var ctx = cvs.getContext("2d");
+		ctx.fillRect(50,50,100,100);
+		ctx.fillStyle = 'red';
+		ctx.beginPath();
+		ctx.stroke();
+		ctx.moveTo(300,400);
+		ctx.lineTo(250 , 250);
+		ctx.closePath();
+		ctx.fill();
+	};
+
+
+	</script>
+</head>
+<body>
+<canvas id="cvs" width="800" height="600" style="border: 1px solid #000000" >
+
+	
+
+
+</canvas>
+</body>
+</html>
