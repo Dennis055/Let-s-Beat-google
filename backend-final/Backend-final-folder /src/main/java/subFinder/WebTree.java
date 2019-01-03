@@ -34,4 +34,15 @@ public class WebTree {
 			System.out.println(")");
 		}
 	}
+	//Just for unit test
+	private void setRootscore(WebNode root , ArrayList<Keyword>keywords) throws IOException {
+		root.setNodeScore(keywords);
+	}
+	public void setRootScore(ArrayList<Keyword>keywords) throws IOException {
+		setRootscore(this.root, keywords);
+	}
+	public void printRoot(WebNode startnode) {
+		System.out.println("(" + startnode.webPage.name + startnode.nodeScore + ")");
+	}
+	
 }

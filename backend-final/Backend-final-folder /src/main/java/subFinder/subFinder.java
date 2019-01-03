@@ -27,10 +27,10 @@ public class subFinder {
 //		public String searchKeyword;
 		public String url;
 		public String content;
-		public subFinder(String url) {
-			// TODO Auto-generated constructor stub
-			this.url = url;
-		}
+//		public subFinder(String url) {
+//			// TODO Auto-generated constructor stub
+//			this.url = url;
+//		}
 		
 //		public GoogleQuery(String searchKeyword) {
 //			this.searchKeyword = searchKeyword;
@@ -73,7 +73,7 @@ public class subFinder {
 				  linkHref = url + "/" + linkHref;//Adjust the content and add the http
 			  }
 			  hreflist.add(linkHref);
-			  System.out.println(linkHref);
+			 // System.out.println(linkHref);
 			}
 			return hreflist;//root
 		}
