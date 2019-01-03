@@ -1,15 +1,17 @@
 
-public class main {
+import java.io.IOException;
+import java.util.Scanner;
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
-		WriterOrReaderTxt e = new WriterOrReaderTxt ();
-		//e.writerTxt();
-		e.readTxt();
-	
-	
+public class Main {
+
+	public static void main(String[] args) throws IOException {
+		Scanner scanner = new Scanner(System.in);
+		while(scanner.hasNextLine()) {
+			String keyword = scanner.next();
+			GoogleQuery googleQuery = new GoogleQuery(keyword);
+			googleQuery.query();
+		}
+		scanner.close();
 
 	}
-
 }
