@@ -1,0 +1,124 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.ArrayList;
+//code不知為何排第一個array會多一個"?"
+public class WriterOrReaderTxt {
+	public void writerTxt() {
+
+		//writer在這裡用不到  但是放在這裡以參考txt的檔案路線
+		BufferedWriter fw = null;
+
+		try {
+
+		File file = new File("C:\\Users\\user\\eclipse-workspace\\ReaderTxt\\bin\\test.txt");
+
+		fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file, true), "UTF-8")); // 指點編碼格式，以免讀取時中文字符異常
+		fw.append("我寫入的內容");
+
+		fw.newLine();
+
+		fw.append("我又寫入的內容");
+
+		fw.flush(); // 全部寫入緩存中的內容
+
+		} catch (Exception e) {
+
+		e.printStackTrace();
+
+		} finally {
+
+		if (fw != null) {
+
+		try {
+
+		fw.close();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+
+		}
+
+		}
+
+		}
+
+		}
+
+		 
+
+		// 讀文件
+
+		public void readTxt() {
+
+		String filePath = WriterOrReaderTxt.class.getResource("").getPath().replace("file:", "")
+
+		+ "/test.txt"; // 文件和該類在同個目錄下
+
+		BufferedReader reader = null;
+
+		try {
+
+		reader = new BufferedReader(new InputStreamReader(new FileInputStream(filePath), "UTF-8")); // 指定讀取文件的編碼格式，以免出現中文亂碼
+
+		String str = null;
+		
+		ArrayList<String> list = new ArrayList<String>();
+
+		while ((str = reader.readLine()) != null) {
+
+		list.add(str);
+
+		}
+		
+		System.out.println(list);
+
+		} catch (FileNotFoundException e) {
+
+		e.printStackTrace();
+
+		} catch (IOException e) {
+
+		e.printStackTrace();
+
+		} finally {
+
+		try {
+
+		reader.close();
+
+		} catch (IOException e) {
+
+		e.printStackTrace();
+
+		}
+
+		}
+
+		}
+
+}
+
+
+
+public class main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		WriterOrReaderTxt e = new WriterOrReaderTxt ();
+		//e.writerTxt();
+		e.readTxt();
+	
+
+	}
+
+}
+
+
