@@ -15,6 +15,18 @@
 		window.onload()
 		
 	func(10 , 30);
+	function Stack(){
+		let items = []
+		this.push = function(element){
+			items.push(element);
+		}
+		this.pop = function(){
+			items.pop();
+		}
+		this.peek = function(){
+			return items[items.length - 1];
+		}
+	}
 	</script>
 </head>
 <body>
