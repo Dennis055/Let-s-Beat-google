@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="HW11_106306055">
+        <property name="context-root" value="HW11_106306055"/>
+        <property name="java-output-path" value="/HW11_106306055/build/classes"/>
+    </wb-module>
+</project-modules>
