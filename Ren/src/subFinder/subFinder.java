@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
@@ -12,7 +13,7 @@ import java.net.URLClassLoader;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-
+import javax.net.ssl.SSLHandshakeException;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -30,23 +31,44 @@ public class subFinder {
 		public String url;
 		public String content;
 
-		private String fetchContent() throws IOException {
-			String retVal = "";
-			System.out.println(this.url);
-			URL urlStr = new URL(this.url);
-			URLConnection connection = urlStr.openConnection();
-			connection.setRequestProperty("User-Agent", "Mozilla/5.0(Macintosh; U; Intel Mac OS X 10.4; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2");
-			connection.connect();
-			InputStream inputStream = connection.getInputStream();
-			InputStreamReader inReader = new InputStreamReader(inputStream, "UTF8");
-			BufferedReader bf = new BufferedReader(inReader);
-			
-		
-			String line = null;
-			while((line = bf.readLine())!=null) {
-				retVal += line;
+		private String fetchContent() throws IOException{
+			//TODO 如何處理沒有https的網頁？以免出現 java.net.MalformedURLException:
+//			if(this.url.contains("BBC")==true) {
+//				this.url = "https://www.google.com"; //
+//			}
+			String NoContent = "";
+			if(this.url.contains("http")!=true) {
+				this.url  = "http://" + url;
 			}
+			try {
+			URL url = new URL(this.url);
+			URLConnection conn = url.openConnection();
+			HttpURLConnection httpCon = (HttpURLConnection) conn;
+			int code = httpCon.getResponseCode();
+			if(code==HttpURLConnection.HTTP_OK) {
+			InputStream in = conn.getInputStream();
+			BufferedReader bReader = new BufferedReader(new InputStreamReader(in));
+			
+			String retVal = "";
+			String line = null;
+			
+			while((line = bReader.readLine())!=null) { //while loop continue
+				retVal = retVal + line + "\n";  
+				}
+			in.close();
 			return retVal;
+			}else {
+				 System.out.println("Can not access the website");
+				 
+			}	
+			}catch (MalformedURLException e) {
+				System.out.println("Wrong URL!");
+				// TODO: handle exception
+			}catch (IOException e) {
+				// TODO: handle exception
+				System.out.println("Can not connect!");
+			}
+			return NoContent;
 		}
 		 
 		//TODO method
@@ -68,25 +90,40 @@ public class subFinder {
 //			}
 //			return hreflist;//root
 //		}
-		
+		//TODO連線使用
 		public ArrayList<String>findSublinks() throws IOException{
 			String url = this.url;
 			ArrayList<String>hreflist = new ArrayList<String>();
 			if(this.content==null) {
 				this.content = fetchContent();
 			}
-		    Document doc = Jsoup.connect(url).get();
-	          Elements links = doc.select("a[href]");
-	          for(Element link:links) {
-	             String str =  link.attr("href");
-	             if(str.startsWith("http")) {
-	                hreflist.add(str);
-	             }
-	 
-	             // System.out.println(link.select(""));
-	          }
-			
+			try {
+					URL url1 = new URL(this.url);
+					URLConnection conn = url1.openConnection();
+					HttpURLConnection httpCon = (HttpURLConnection) conn;
+					int code = httpCon.getResponseCode();
+					if(code==HttpURLConnection.HTTP_OK) {
+						 Document doc = Jsoup.connect(url).get();
+				          Elements links = doc.select("a[href]");
+				          for(Element link:links) {
+				             String str =  link.attr("href");
+				             if(str.startsWith("http")) {
+				                hreflist.add(str);
+				             }
+				 
+				             // System.out.println(link.select(""));
+				          }
+						
+						return hreflist;
+					}else {
+						System.out.println("無法與網站子連結產生http連線！");
+					}
+			}catch (Exception e) {
+				// TODO: handle exception
+				System.out.println("sublink url throws exception");
+			}
 			return hreflist;
+		   
 		}
 		
 		

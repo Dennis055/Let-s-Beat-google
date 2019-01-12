@@ -32,7 +32,7 @@ public class GoogleQuery {
  
  public GoogleQuery(String searchKeyword){
   this.searchKeyword = searchKeyword;
-  this.url = "https://www.google.com.tw/search?q=" + searchKeyword + "&num=5";//我們先找5筆資料，不然server會爆掉，但太多筆資料時間又很長。
+  this.url = "https://www.google.com.tw/search?q=" + searchKeyword + "&num=15";//我們先找5筆資料，不然server會爆掉，但太多筆資料時間又很長。
  }
  
  private String fetchContent() throws IOException {
@@ -78,7 +78,7 @@ public class GoogleQuery {
 // 
  
  
- public ArrayList<String>queryForArr() throws IOException{
+ public ArrayList<String>query() throws IOException{
 	  if(this.content == null) {
 	   this.content = fetchContent();
 	  }
@@ -129,25 +129,26 @@ public class GoogleQuery {
 	 }
  
  	//TODO:把google ban掉
- 	public ArrayList<String> query() throws IOException{
- 		ArrayList<String>retVal = new ArrayList<String>();
- 		if(this.content==null) {
- 			this.content = fetchContent();
- 		}
- 		 Document doc = Jsoup.connect(this.url).get();
- 		 Elements links = doc.select("a[href]");
- 		 for(Element link:links) {
- 			String str =  link.attr("href");
- 			if(str.startsWith("http")) {
- 			//	System.out.println(str);
- 				if(str.contains("google"))
- 					continue;
- 				retVal.add(str);
- 			}
- 	}
- 		 this.RootURL = retVal;
- 		return retVal;
- 	}
+// 	public ArrayList<String> query() throws IOException{
+// 		ArrayList<String>retVal = new ArrayList<String>();
+// 		if(this.content==null) {
+// 			this.content = fetchContent();
+// 		}
+// 		 Document doc = Jsoup.connect(this.url).get();
+// 		 Elements links = doc.select("a[href]");
+// 		 for(Element link:links) {
+// 			String str =  link.attr("href");
+// 			if(str.startsWith("http")) {
+// 			//	System.out.println(str);
+// 				if(str.contains("google"))
+// 					continue;
+// 				retVal.add(str);
+// 				System.out.println(str);
+// 			}
+// 	}
+// 		 this.RootURL = retVal;
+// 		return retVal;
+// 	}
  	public void printResult() {
  		for(int i = 0 ; i<RootURL.size();i++) {
  			System.out.println(RootURL.get(i));

@@ -53,6 +53,7 @@ public class keywordHeap {
 		for(int i =times - 1;i >=0 ;i--) {
 			Keyword keyword = result.get(i);
 			System.out.println(keyword);
+			System.out.println(keyword.weight);
 		}
 	}
 	

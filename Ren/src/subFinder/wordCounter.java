@@ -56,7 +56,7 @@ public class wordCounter {
 			// TODO: handle exception
 		}catch (IOException e) {
 			// TODO: handle exception
-			System.out.println("Can't not connect!");
+			System.out.println("Can not connect!");
 		}
 		return NoContent;
 	}

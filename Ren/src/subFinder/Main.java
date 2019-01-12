@@ -44,6 +44,8 @@ public class Main extends HttpServlet {
 				}
 				String keyTest = request.getParameter("keyword");
 				GoogleQuery querier = new GoogleQuery(keyTest);
+				System.out.println("收集您輸入的關鍵字，完成！");
+				System.out.println("收集網頁位址如下：");
 				//String keyTest = "壽司";//"壽司"可以替換成前端變數
 				//GoogleQuery querier = new GoogleQuery(keyTest);
 				ArrayList<String>rootlist = querier.query();
@@ -55,11 +57,13 @@ public class Main extends HttpServlet {
 				//ArrayList<Keyword>keywords =okeKey.initKeyword();//產生初始字串以符合主題。
 				ArrayList<Keyword>keywords = okeKey.initKeyword();
 				keywords.add(keyword);
-				System.out.println("收集您輸入的關鍵字，完成！");
+				System.out.println("============================");
+				
+				
 				
 				ArrayList<WebTree>forest = new ArrayList<WebTree>();//一個放所有tree的list
 				//end
-				System.out.println("計算分數中......");
+				System.out.println("開始計算網頁分數");
 				for(String rooturl:rootlist) {
 					WebPage rootPage = new WebPage(rooturl,titleList.get(i));
 					if(i<titleList.size()-1)
@@ -73,10 +77,11 @@ public class Main extends HttpServlet {
 					}
 					//tree.setRootScore(keywords);//延伸為包含統計子頁面
 					//tree.printRoot(tree.root); //print出頁面分數跟標題
-					System.out.println("累加分數");
+					
 					//TODO 子網頁的分數累加到整個網頁  -> Done 
 					tree.setPostOrderScore(keywords);
 					forest.add(tree);		
+					System.out.println("累加分數設定中......");
 				
 					//tree.printTree();
 				//System.out.println(tree.root.nodeScore);
@@ -86,6 +91,9 @@ public class Main extends HttpServlet {
 				//System.out.println("這是您的搜尋結果");
 			//gardener.printResult();
 			//	ArrayList<String> query = google.query();
+				System.out.println("搜尋結果已出爐！");
+				System.out.println("後台顯示結果");
+				System.out.println("=====================");
 				HashMap<String, String>query = gardener.myBeautifulForest();
 				//TODO:這上面我們就處理資料 ， 下面我們處理寫入資料。
 				String[][] s = new String[query.size()][2];
@@ -99,8 +107,8 @@ public class Main extends HttpServlet {
 				    num++;
 				    System.out.println(key + "," + value);
 				}
-				//System.out.println("搜尋結果已出爐！");
 				
+				gardener.printResult();
 				request.getRequestDispatcher("googleitem.jsp")
 				 .forward(request, response);
 		}catch (Exception e) {
