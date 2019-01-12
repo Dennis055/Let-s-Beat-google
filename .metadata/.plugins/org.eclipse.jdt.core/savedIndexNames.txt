@@ -1,6 +1,5 @@
 INDEX VERSION 1.131+/Users/Dennis/Desktop/javaEE/.metadata/.plugins/org.eclipse.jdt.core
 2789894291.index
-78465303.index
 1271342938.index
 4070421791.index
 2973570024.index
@@ -17,7 +16,6 @@ INDEX VERSION 1.131+/Users/Dennis/Desktop/javaEE/.metadata/.plugins/org.eclipse.
 1101660569.index
 995247809.index
 2996939245.index
-3897639487.index
 1463469286.index
 3927879410.index
 2289196694.index

@@ -53,13 +53,12 @@ public class Main extends HttpServlet {
 				//Setting for test
 				int i = 0; //為了for each可以控制index
 				Keyword keyword = new Keyword(keyTest, 1.1);
-				OfficialKey office = new OfficialKey();
+				OfficialKey okeKey = new OfficialKey();
 				//ArrayList<Keyword>keywords =okeKey.initKeyword();//產生初始字串以符合主題。
-				office.add(keyword);
+				ArrayList<Keyword>keywords = okeKey.initKeyword();
+				keywords.add(keyword);
 				System.out.println("========= 關鍵字如下  ============");
-				office.printKeywords();
-				ArrayList<Keyword>keywords =office.getKeyword(); 
-				System.out.println("");
+				
 				System.out.println("============================");
 				
 				

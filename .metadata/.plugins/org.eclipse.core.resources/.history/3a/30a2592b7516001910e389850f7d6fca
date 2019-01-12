@@ -59,7 +59,6 @@ public class Main extends HttpServlet {
 				System.out.println("========= 關鍵字如下  ============");
 				office.printKeywords();
 				ArrayList<Keyword>keywords =office.getKeyword(); 
-				System.out.println("");
 				System.out.println("============================");
 				
 				

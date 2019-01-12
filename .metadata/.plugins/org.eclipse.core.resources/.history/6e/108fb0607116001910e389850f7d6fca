@@ -58,15 +58,5 @@ public class Gardener {
 		}
 		return forFrontier;
 	}
-	public void printBeautifulScore() {
-		ArrayList<WebTree>beautiForest = this.new_forest;
-		for(WebTree tree:beautiForest) {
-			String name = tree.root.webPage.name;
-			String url = tree.root.webPage.url;
-			double score = tree.root.webPage.score;
-			System.out.println(name + "," + url + " , " +  score);
-		}
-		
-	}
 
 }

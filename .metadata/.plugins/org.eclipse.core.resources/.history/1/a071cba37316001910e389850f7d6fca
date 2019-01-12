@@ -34,10 +34,9 @@ public class OfficialKey {
 	        keywords.add(k5);
 	        this.keyBox = keywords;
 		}
-		public ArrayList<Keyword>getKeyword(){
+		public ArrayList<Keyword>initKeyword(){
 			return this.keyBox;
 		}
-		
 		public void printKeywords() {
 			for(int i = 0 ; i <this.keyBox.size();i++) {
 				System.out.print(keyBox.get(i) + " , ");
