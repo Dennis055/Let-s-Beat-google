@@ -29,6 +29,7 @@ input[type="submit"]:hover{color:#0099FF;box-shadow:5px 3px 5px 0px rgba(23,87,2
 
 
 <%
+out.println("出來喔");
 String[][] orderList = (String[][])  request.getAttribute("query");
 String space= " \n";
 for(int i =0 ; i < orderList.length;i++){%>

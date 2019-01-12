@@ -52,13 +52,14 @@ public class Main extends HttpServlet {
 				int i = 0; //為了for each可以控制index
 				Keyword keyword = new Keyword(keyTest, 1.1);
 				OfficialKey okeKey = new OfficialKey();
-				ArrayList<Keyword>keywords =okeKey.initKeyword();//產生初始字串以符合主題。
-				
-				//System.out.println("收集您輸入的關鍵字，完成！");
+				//ArrayList<Keyword>keywords =okeKey.initKeyword();//產生初始字串以符合主題。
+				ArrayList<Keyword>keywords = okeKey.initKeyword();
+				keywords.add(keyword);
+				System.out.println("收集您輸入的關鍵字，完成！");
 				
 				ArrayList<WebTree>forest = new ArrayList<WebTree>();//一個放所有tree的list
 				//end
-				//System.out.println("計算分數中......");
+				System.out.println("計算分數中......");
 				for(String rooturl:rootlist) {
 					WebPage rootPage = new WebPage(rooturl,titleList.get(i));
 					if(i<titleList.size()-1)
@@ -72,10 +73,11 @@ public class Main extends HttpServlet {
 					}
 					//tree.setRootScore(keywords);//延伸為包含統計子頁面
 					//tree.printRoot(tree.root); //print出頁面分數跟標題
-				
-					//TODO 子網頁的分數累加到整個網頁  
+					System.out.println("累加分數");
+					//TODO 子網頁的分數累加到整個網頁  -> Done 
 					tree.setPostOrderScore(keywords);
 					forest.add(tree);		
+				
 					//tree.printTree();
 				//System.out.println(tree.root.nodeScore);
 					}
@@ -95,11 +97,15 @@ public class Main extends HttpServlet {
 				    s[num][0] = key;
 				    s[num][1] = value;
 				    num++;
+				    System.out.println(key + "," + value);
 				}
+				//System.out.println("搜尋結果已出爐！");
+				
 				request.getRequestDispatcher("googleitem.jsp")
 				 .forward(request, response);
 		}catch (Exception e) {
 			// TODO: handle exception
+			e.printStackTrace();
 		}
 	}
 

@@ -5,6 +5,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
@@ -22,14 +23,19 @@ public class wordCounter {
 	}
 	private String fetchContent() throws IOException{
 		//TODO 如何處理沒有https的網頁？以免出現 java.net.MalformedURLException:
-		if(this.url.contains("BBC")==true) {
-			this.url = "https://www.google.com"; //
-		}
+//		if(this.url.contains("BBC")==true) {
+//			this.url = "https://www.google.com"; //
+//		}
+		String NoContent = "";
 		if(this.url.contains("http")!=true) {
 			this.url  = "http://" + url;
 		}
+		try {
 		URL url = new URL(this.url);
 		URLConnection conn = url.openConnection();
+		HttpURLConnection httpCon = (HttpURLConnection) conn;
+		int code = httpCon.getResponseCode();
+		if(code==HttpURLConnection.HTTP_OK) {
 		InputStream in = conn.getInputStream();
 		BufferedReader bReader = new BufferedReader(new InputStreamReader(in));
 		
@@ -38,8 +44,21 @@ public class wordCounter {
 		
 		while((line = bReader.readLine())!=null) { //while loop continue
 			retVal = retVal + line + "\n";  
-		}
+			}
+		in.close();
 		return retVal;
+		}else {
+			 System.out.println("Can not access the website");
+			 
+		}	
+		}catch (MalformedURLException e) {
+			System.out.println("Wrong URL!");
+			// TODO: handle exception
+		}catch (IOException e) {
+			// TODO: handle exception
+			System.out.println("Can't not connect!");
+		}
+		return NoContent;
 	}
 	
 	public  int countKeyword(String keyword) throws IOException {
