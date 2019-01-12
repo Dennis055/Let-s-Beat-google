@@ -43,11 +43,6 @@ public class Main extends HttpServlet {
 					return;
 				}
 				String keyTest = request.getParameter("keyword");
-				Keyword keyword = new Keyword(keyTest, 4);
-				OfficialKey office = new OfficialKey();
-				//ArrayList<Keyword>keywords =okeKey.initKeyword();//產生初始字串以符合主題。
-				office.add(keyword);
-				keyTest += office.text;
 				GoogleQuery querier = new GoogleQuery(keyTest);
 				System.out.println("收集您輸入的關鍵字，完成！");
 				System.out.println("收集網頁位址如下：");
@@ -57,6 +52,10 @@ public class Main extends HttpServlet {
 				ArrayList<String>titleList =querier.queryForTitle(); 
 				//Setting for test
 				int i = 0; //為了for each可以控制index
+				Keyword keyword = new Keyword(keyTest, 1.1);
+				OfficialKey office = new OfficialKey();
+				//ArrayList<Keyword>keywords =okeKey.initKeyword();//產生初始字串以符合主題。
+				office.add(keyword);
 				System.out.println("========= 關鍵字如下  ============");
 				office.printKeywords();
 				ArrayList<Keyword>keywords =office.getKeyword(); 

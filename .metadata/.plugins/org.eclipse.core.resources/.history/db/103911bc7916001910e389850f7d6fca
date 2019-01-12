@@ -1,11 +1,9 @@
 package subFinder;
 
-import java.awt.Stroke;
 import java.util.ArrayList;
 
 public class OfficialKey {
 		private ArrayList<Keyword>keyBox = new ArrayList<Keyword>();
-		String text ;
 		
 		public OfficialKey() {
 			// TODO Auto-generated constructor stub
@@ -24,13 +22,11 @@ public class OfficialKey {
 	        String init4 = "車位";
 	        String init5  = "傢俱";
 	        Keyword k1 = new Keyword(init1, 4);
-	        Keyword k2 = new Keyword(init2, 3.55);
-	        Keyword k3 = new Keyword(init3, 3);
+	        Keyword k2 = new Keyword(init2, 2.05);
+	        Keyword k3 = new Keyword(init3, 2.05);
 	        Keyword k4 = new Keyword(init4, 2.05);
-	        Keyword k5 = new Keyword(init5, 2.55);
+	        Keyword k5 = new Keyword(init5, 2.05);
 //	        
-	        this.text = init1 + init2 + init3 + init4 + init5;
-	        
 	        keywords.add(k1);
 	        keywords.add(k2);
 	        keywords.add(k3);
