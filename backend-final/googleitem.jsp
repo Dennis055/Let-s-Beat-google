@@ -7,12 +7,14 @@
 <title>Houses For Rent</title>
 </head>
 <style>body{background-image:url('http://insightreport.debeersgroup.com/_images/backgrounds/global-consumer-demand-bg.jpg');background-repeat:no-repeat;}
-input[type="text"]{position:fixed;left:15px;top:30px;font-style:italic;width:500px;height:20px;z-index:2;border:2px solid#FFFFFF;
+input[type="text"]{position:fixed;left:80px;top:30px;font-style:italic;width:500px;height:20px;z-index:2;border:2px solid#FFFFFF;
 border-radius: 15px;box-shadow:6px 4px 6px 0px rgba(42,42,42,75);}
 input[type="text"]:hover{box-shadow:6px 4px 6px 0px rgba(23,87,214,75);}
-input[type="submit"]{position:fixed;left:530px;top:30px;border-radius:10px;color:#000000;background-color:#FFFFFF;
+input[type="submit"]{position:fixed;left:595px;top:30px;border-radius:10px;color:#000000;background-color:#FFFFFF;
 box-shadow:6px 4px 6px 0px rgba(42,42,42,75);height:25px;width:70px;z-index:2}
-input[type="submit"]:hover{color:#0099FF;box-shadow:6px 4px 6px 0px rgba(23,87,214,75)}
+input[type="submit"]:hover{color:#0099FF;box-shadow:6px 4px 6px 0px rgba(23,87,214,75);}
+img{position:fixed;left:3px;top:5px;z-index:2;height:70px;width:70px;border-radius:50%;}
+img:hover{box-shadow:0px 0px 20px 0px rgba(23,87,214,75);}
 </style>
 
 
@@ -24,6 +26,7 @@ input[type="submit"]:hover{color:#0099FF;box-shadow:6px 4px 6px 0px rgba(23,87,2
 
 
 <form action='${requestUri}' method='get'>
+<a href ="http://localhost:8080/106306054_HW11/TestProject"><img src= "http://www.lifetimeearn.com/images/home-icon.png" border ="0"  /></a>
 
 <input type='text' name='keyword' placeholder = 'keyword'   />
 <input type='submit'value='search'   />
