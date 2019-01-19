@@ -149,7 +149,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="/Users/Dennis/Desktop/javaEE/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/ROOT" path="" reloadable="false"/><Context docBase="/Users/Dennis/Desktop/javaEE/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/HW11_106306055" path="/HW11_106306055" reloadable="true" source="org.eclipse.jst.jee.server:HW11_106306055"/><Context docBase="/Users/Dennis/Desktop/javaEE/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/Ren" path="/Ren" reloadable="true" source="org.eclipse.jst.jee.server:Ren"/></Host>
+      <Context docBase="/Users/Dennis/Desktop/javaEE/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/ROOT" path="" reloadable="false"/><Context docBase="/Users/Dennis/Desktop/javaEE/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/HW11_106306055" path="/HW11_106306055" reloadable="true" source="org.eclipse.jst.jee.server:HW11_106306055"/><Context docBase="/Users/Dennis/Desktop/javaEE/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/Ren" path="/Ren" reloadable="true" source="org.eclipse.jst.jee.server:Ren"/><Context docBase="/Users/Dennis/Desktop/javaEE/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/dragon" path="/dragon" reloadable="true" source="org.eclipse.jst.jee.server:dragon"/></Host>
     </Engine>
   </Service>
 </Server>

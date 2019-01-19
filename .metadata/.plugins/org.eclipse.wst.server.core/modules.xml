@@ -3,4 +3,5 @@
   <module moduleId="org.eclipse.jst.jee.server:HW11_106306055" serverId="Tomcat v8.5 Server at localhost"/>
   <module moduleId="org.eclipse.jst.jee.server:Rent" serverId="Tomcat v8.5 Server at localhost"/>
   <module moduleId="org.eclipse.jst.jee.server:Ren" serverId="Tomcat v8.5 Server at localhost"/>
+  <module moduleId="org.eclipse.jst.jee.server:DragonHorn"/>
 </modules>

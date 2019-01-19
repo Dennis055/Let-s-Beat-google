@@ -32,7 +32,8 @@ public class GoogleQuery {
  
  public GoogleQuery(String searchKeyword){
   this.searchKeyword = searchKeyword;
-  this.url = "https://www.google.com.tw/search?q=" + searchKeyword + "&num=30";//我們先找5筆資料，不然server會爆掉，但太多筆資料時間又很長。
+  this.url = "https://www.google.com.tw/search?q=" + searchKeyword + "&num=20";//我們先找5筆資料，不然server會爆掉，但太多筆資料時間又很長。
+ // this.url = "https://www.google.com.tw/search?num=20&ei=XapCXLzHBYn78QXHi7vwCg&q="+ searchKeyword + "&oq=" + searchKeyword + "&gs_l=psy-ab.3...6238.10034..10218...2.0..0.182.741.9j2......0....1..gws-wiz.urQ7V5bwJNQ";
  }
  
  private String fetchContent() throws IOException {
